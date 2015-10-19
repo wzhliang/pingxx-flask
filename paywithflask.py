@@ -85,7 +85,17 @@ def do_charge():
 
 @app.route('/', methods=['GET'])
 def index():
+    print pingpp.wxpub_oauth.WxpubOauth.create_oauth_url_for_code(
+        'wxd67a2b99fe955705',
+        'http://www.zoom178.com:8888/stupidwx')
     return render_template('index.html')
+
+
+@app.route('/get_url', methods=['GET'])
+def get_url():
+    return pingpp.wxpub_oauth.WxpubOauth.create_oauth_url_for_code(
+        'wxd67a2b99fe955705',
+        'http://www.zoom178.com:8888/stupidwx')
 
 
 if __name__ == '__main__':
